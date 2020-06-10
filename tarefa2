@@ -1,0 +1,30 @@
+import numpy as np
+from scipy.optimize import fsolve
+
+#definindo entradas#
+xv = [0,0,0,0,0,0,0,0,0,0]
+yv = [0,0,0,0,0,0,0,0,0,0]
+xb = [0,0,0,0,0,0,0,0,0,0,0,0]
+yb = [0,0,0,0,0,0,0,0,0,0,0,0]
+xvl = [0,0,0,0,0,0,0,0,0,0]
+yvl = [0,0,0,0,0,0,0,0,0,0]
+xbl = [0,0,0,0,0,0,0,0,0,0,0,0]
+ybl = [0,0,0,0,0,0,0,0,0,0,0,0]
+alpha = 0
+xo = 0
+lmbda = 0.8
+
+#passando de x para xl#
+for i in range(0, 6):
+    print ('i',i)
+    xvl[i] = xv[i] * np.cos(alpha) + yv[i] * np.sin(alpha)
+    yvl[i] = -xv[i] * np.sin(alpha) + yv[i] * np.cos(alpha) 
+    
+for i in range(0, 10):
+    print ('i',i)
+    xbl[i] = xb[i] * np.cos(alpha) + yb[i] * np.sin(alpha)
+    ybl[i] = -xb[i] * np.sin(alpha) + yb[i] * np.cos(alpha)
+    
+#encontrando yl max e min#
+ymax = max(yvl, key=int)
+print(ymax)
