@@ -1,0 +1,25 @@
+import numpy as np
+from scipy.optimize import fsolve
+
+
+x=np.array([2,4,4,2,0,0])
+y=np.array([1,1,3,3,0,0])   
+
+Acc=0.0
+nvc=4
+for i in range(0, nvc):
+    print ('i',i)
+    
+    if i < 3:
+        deltay = y[i+1]-y[i]
+        deltax = x[i+1]-x[i]
+        Acc = Acc + 0.5 * deltay * (2.0 * x[i] + deltax)
+        print(1)
+        
+    else:
+        deltay = y[0]-y[i]
+        deltax = x[0]-x[i]
+        Acc = Acc + 0.5 * deltay * (2.0 * x[i] + deltax)
+        print(2)
+        
+print('Acc',Acc)
